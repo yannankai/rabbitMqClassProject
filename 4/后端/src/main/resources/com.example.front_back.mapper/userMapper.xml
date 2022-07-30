@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.front_back.mapper.UserMapper">
+<select id="getAllUsers" resultType="User" >  <!--注意，返回的是List<> 内部的类型-->
+    select * from user ;
+</select>
+<insert id="createUser" >
+    insert user(user_name,password) values(#{username},#{password})
+</insert>
+    <select id="getUserById" resultType="User">
+        select * from user where user_name = #{username};
+    </select>
+
+    <select id="test" resultType="string">
+        select user.user_name from user  where user_name = "1";
+    </select>
+
+</mapper>
